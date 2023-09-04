@@ -4,6 +4,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from collections import Counter
 import nltk
+from flask_cors import CORS
 
 nltk.download('punkt')
 nltk.download('stopwords')
