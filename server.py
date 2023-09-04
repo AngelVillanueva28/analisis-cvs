@@ -1,4 +1,4 @@
-import os 
+import os
 from flask import Flask, request, jsonify
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
@@ -52,7 +52,10 @@ def calculate_matches():
                 'match_percentage': match_percentage
             })
         
-        return jsonify(results)
+        response = jsonify(results)
+        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:5000'
+        
+        return response
     except KeyError:
         return jsonify({'error': 'Invalid JSON data'}), 400
 
