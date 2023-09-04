@@ -1,4 +1,4 @@
-import os
+import os 
 from flask import Flask, request, jsonify
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
@@ -9,7 +9,6 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 app = Flask(__name__)
-CORS(app)
 
 def preprocess_text(text):
     tokens = word_tokenize(text)
@@ -52,10 +51,7 @@ def calculate_matches():
                 'match_percentage': match_percentage
             })
         
-        response = jsonify(results)
-        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:5000'
-        
-        return response
+        return jsonify(results)
     except KeyError:
         return jsonify({'error': 'Invalid JSON data'}), 400
 
