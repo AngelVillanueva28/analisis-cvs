@@ -9,6 +9,7 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 app = Flask(__name__)
+CORS(app)
 
 def preprocess_text(text):
     tokens = word_tokenize(text)
